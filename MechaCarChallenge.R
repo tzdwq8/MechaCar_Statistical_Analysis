@@ -12,3 +12,12 @@ summary(lm(mpg ~ vehicle_length +  + vehicle_weight + spoiler_angle + ground_cle
 
 # p-value: 5.35e-11
 # R-squared:  0.6825
+
+# Import and read csv file as a data frame
+Suspension_table <- read.csv(file='Suspension_Coil.csv', check.names=F, stringsAsFactors = F)
+
+# Create data frame to get the mean, median, variance, and standard deviation of the suspension coil's PSI column
+total_summary <- Suspension_table %>% summarize(Mean=mean(PSI), Median=median(PSI), Variance=var(PSI), SD=sd(PSI), .groups = 'keep') 
+
+# creates data frame to group each manufacturing lot by the mean, median, variance, and standard deviation of the suspension coil's PSI
+lot_summary <- Suspension_table %>% group_by(Manufacturing_Lot) %>% summarize(Mean = mean(PSI), Median = median(PSI),Variance = var(PSI), SD = sd(PSI))
