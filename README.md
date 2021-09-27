@@ -6,9 +6,9 @@
 ![Linear Regression](https://user-images.githubusercontent.com/85590155/134832086-bf3b9745-d11c-4237-ad9e-d04d11bb3803.PNG)
 
 ### Summary
-- According to the results (p-value), **vehicle length** and **ground clearance** are statistically unlikely to provide random amounts of variance to the linear model.   In other words, the **vehicle length** and **ground clearance** have a significant impact on miles per gallon (mpg). The intercept is also statistically significant.  This could mean that **vehicle length** and **ground clearance** may need scaling or transforming to help improve the predictive power of the model.  Or,  it may mean that there are other variables that can help explain the variability mpg that have not been included in the model.
+- According to the results (p-value), **vehicle length** and **ground clearance** are statistically unlikely to provide random amounts of variance to the linear model.   In other words, the **vehicle length** and **ground clearance** have a significant impact on miles per gallon (mpg). The intercept is also statistically significant.  This could mean that **vehicle length** and **ground clearance** may need scaling or transforming to help improve the predictive power of the model.  Or it may mean that there are other variables that can help explain the variability mpg that have not been included in the model.
 - The p-value of the linear regression is 5.35x10<sup>-11</sup>, which is much smaller than the assumed significance level of 0.05. Therefore, we can state that there is sufficient evidence to reject the null hypothesis, which means that the slope of the linear model is not zero.
-- The coefficient of determination (Adjusted R-squared value) for this model is 0.6825.  This indicates a modeate strength of correlation, which means this linear model predicts the mpg of MechaCar prototypes relatively well.  Although there are probably other factors not captured that contribute to the mpg.
+- The coefficient of determination (Adjusted R-squared value) for this model is 0.6825.  This indicates a moderate strength of correlation, which means this linear model predicts the mpg of MechaCar prototypes relatively well.  Although there are probably other factors not captured that contribute to the mpg.
 
 ## Summary Statistics on Suspension Coils
 ### Summary statistics across all manufacturing lots
@@ -20,7 +20,7 @@
 ![Lot Summary](https://user-images.githubusercontent.com/85590155/134838216-623d8761-90b8-4ba6-86e1-447b4f9cc3fc.PNG)
 
 ### Summary
-- The design specifications for the MechaCar suspension coils dictate that the variance of the suspension coils must not exceed 100 pounds per square inch.  From the total summary we can see that the variance across all lots (62.29356) is within the design specifications.  However, when looking at the individual lots, Lot 3 is out of specification with a variance of 170.28612.  Futhermore, the varaince greatly exceeds the variance of Lot 1 and Lot 2 (0.97959 and 7.46939 respectively).  Therefore, more examination is neccessary to understand the production issues with Lot 3.  With maybe suspending production until issues are resolved.
+- The design specifications for the MechaCar suspension coils dictate that the variance of the suspension coils must not exceed 100 pounds per square inch.  From the total summary we can see that the variance across all lots (62.29356) is within the design specifications.  However, when looking at the individual lots, Lot 3 is out of specification with a variance of 170.28612.  Furthermore, the variance greatly exceeds the variance of Lot 1 and Lot 2 (0.97959 and 7.46939 respectively).  Therefore, more examination is necessary to understand the production issues with Lot 3.  With maybe suspending production until issues are resolved.
 
 ## T-Tests on Suspension Coils
 ### T-Tests across all manufacturing lots
@@ -41,7 +41,19 @@
 ![Ttest Lot 3](https://user-images.githubusercontent.com/85590155/134840069-7dcea98a-1c12-40bc-8155-66ea2f260a2f.PNG)
 
 ### Summary
-- The sample mean for all manufacturing lots is 1498.78.  Futhermore, the p-value = 0.06028, which is above our significance level.  Therefore, we fail to reject the null hypothesis.  In other words, the PSI across all manufacturing lots is **not** statistically different from the population mean of 1,500 PSI.
+- The sample mean for all manufacturing lots is 1498.78.  Furthermore, the p-value = 0.06028, which is above our significance level.  Therefore, we fail to reject the null hypothesis.  In other words, the PSI across all manufacturing lots is **not** statistically different from the population mean of 1,500 PSI.
 - For Lot 1, the sample mean is 1500 with a p-value = 1.  Again, we fail to reject the null hypothesis.
 - For Lot 2, the sample mean is 1500.2 with a p-value = 0.6072.  Again, we fail to reject the null hypothesis.
 - For Lot 3, the sample mean is 1496.14 with a p-value = 0.04168.  In this case, we reject the null hypothesis.  In other words, the PSI for Lot 3 is statistically different from the population mean of 1,500 PSI.  The T-Tests supports our findings from the above analysis.
+
+## Study Design: MechaCar vs Competition
+In today's world, with supply chain issues driving up the costs of vehicles, price is often the top priority for consumers.  To determine how MechaCar compares with other manufacturers a multiple linear regression model would be most appropriate.  This is due to the multiple factors that influence the total cost of ownership.  In this model **MSRP** would be the dependent variable.  The independent variables would include:
+- MPG
+- Maintenance costs
+- Kelly Blue Book trade in value
+- Automotive class
+
+The null hypothesis would be there is no significant linear relationship between the MSRP, among all manufacturers, and the factors that influence a vehicle's cost of ownership; therefore, the slope of the linear model should be zero.
+The alternative hypothesis would be there is a linear relationship between the MSRP, among all manufacturers, and the factors that influence a vehicle's cost of ownership; therefore, the slope of the linear model should be nonzero.
+
+This study would involve collecting data on MechaCar and its comparable models across several different manufacturers.  Naturally we would only want to include data from direct competitors with respect to car models.  Also, due to recent fluctuations in prices, we would need to perhaps limit the time period of the data or apply a method to smooth the data.
